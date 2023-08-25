@@ -28,9 +28,11 @@ function updateInventory(arr1, arr2) {
     }
   })
 
-  arr1.sort((currItem, nextItem) => {currItem[1] > nextItem[1] ? 1 : -1; });
+  arr1.sort((currItem, nextItem) => {
+    return currItem[1] > nextItem[1] ? 1 : -1;
+  });
 
   return arr1;
 }
 
-console.log(updateInventory([[21, "Bowling Ball"], [2, "Dirty Sock"], [1, "Hair Pin"], [5, "Microphone"]], [[2, "Hair Pin"], [3, "Half-Eaten Apple"], [67, "Bowling Ball"], [7, "Toothpaste"]]));
+console.log(updateInventory([], [[2, "Hair Pin"], [3, "Half-Eaten Apple"], [67, "Bowling Ball"], [7, "Toothpaste"]]));
