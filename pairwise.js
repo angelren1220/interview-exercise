@@ -13,23 +13,22 @@ Below we'll take their corresponding indices and add them.
 9 + 11 = 20 → Indices 1 + 2 = 3
 3 + 3 = 6 → Return 6 */
 
-function pairwise(arr, sum) {
+function pairwise(arr, args) {
 
-  const indexes = [];
+  const indices = [];
 
   for(let i = 0; i < arr.length; i++) {
-    if(arr.includes(sum - arr[i])){
-      indexes.push(i);
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === args
+          && !indices.includes(i)
+          && !indices.includes(j)) {
+            indices.push(i, j);
+        break;
+      }
     }
   }
 
-  let sumOfIndexes = 0;
-
-  indexes.forEach(index => {
-    sumOfIndexes += index;
-  });
-
-  return sumOfIndexes;
+  return indices.reduce((sum, curr, index) => sum + curr, 0);
 }
 
 console.log(pairwise([1, 4, 2, 3, 0, 5], 7));
