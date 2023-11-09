@@ -32,3 +32,26 @@ function print () {
 //4. multiple if statements could be simplified using else
 //5. use === for strict equality comparisons
 //6. use forEach or for of loop
+
+const EMPTY = 0;
+const SHIP = 1;
+const board = [[null, EMPTY, EMPTY, SHIP], [EMPTY, null, null, null], [EMPTY, null, null, null], [SHIP, null, null, null]];
+
+printBoard();
+
+function printBoard() {
+  board.forEach(row => {
+    let rowString = "|"
+    row.forEach( cell => {
+      if(cell === EMPTY){
+        rowString += "O" 
+      } else if (cell === SHIP){
+        rowString += "X"
+      } else {
+        rowString += " "
+      }
+      rowString += "|"
+    })
+    console.log(rowString)
+  })
+}
