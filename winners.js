@@ -24,3 +24,12 @@
 //   'Elise': ['Bob', 'Carol'],
 // }
 
+// 1. Create an empty object called 'results' to store the participants and their victories.
+// 2. Loop through the array of matches.
+//    2.1. For each match, do the following:
+//         2.1.1. If the winner does not exist as a key in 'results', add them with an initial empty array.
+//         2.1.2. Append the loser's name to the winner's array in 'results'.
+//         2.1.3. If the loser does not exist as a key in 'results', add them with an initial empty array (ensuring everyone appears in the result).
+// 3. Return the 'results' object.
+
+
