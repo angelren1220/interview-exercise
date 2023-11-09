@@ -4,15 +4,15 @@
 
 // We're given some game outcome data like the following:
 
-// [
-//   { winner: 'Alice', loser: 'Bob',   loser_points: 3 },
-//   { winner: 'Carol', loser: 'Dean',  loser_points: 1 },
-//   { winner: 'Elise', loser: 'Bob',   loser_points: 2 },
-//   { winner: 'Elise', loser: 'Carol', loser_points: 4 },
-//   { winner: 'Alice', loser: 'Carol', loser_points: 2 },
-//   { winner: 'Carol', loser: 'Dean',  loser_points: 3 },
-//   { winner: 'Dean',  loser: 'Elise', loser_points: 2 },
-// ]
+matches = [
+  { winner: 'Alice', loser: 'Bob',   loser_points: 3 },
+  { winner: 'Carol', loser: 'Dean',  loser_points: 1 },
+  { winner: 'Elise', loser: 'Bob',   loser_points: 2 },
+  { winner: 'Elise', loser: 'Carol', loser_points: 4 },
+  { winner: 'Alice', loser: 'Carol', loser_points: 2 },
+  { winner: 'Carol', loser: 'Dean',  loser_points: 3 },
+  { winner: 'Dean',  loser: 'Elise', loser_points: 2 },
+];
 // Write a function that returns a list of all the player names (no player should be listed more than once).
 
 // ['Alice', 'Bob', 'Carol', 'Dean', 'Elise']
@@ -23,20 +23,20 @@
 // 2.2 if it is in the result array, skip
 // 3. return the result array
 
-function players(matches){
-  const playerNames = [];
+// function players(matches){
+//   const playerNames = [];
 
-  matches.forEach(match => {
-    if(!playerNames.includes(match.winner)){
-      playerNames.push(match.winner);
-    }
-    if(!playerNames.includes(match.loser)){
-      playerNames.push(match.loser);
-    }
-  });
+//   matches.forEach(match => {
+//     if(!playerNames.includes(match.winner)){
+//       playerNames.push(match.winner);
+//     }
+//     if(!playerNames.includes(match.loser)){
+//       playerNames.push(match.loser);
+//     }
+//   });
 
-  return playerNames;
-}
+//   return playerNames;
+// }
 
 function players(matches) {
   const playerNames = new Set(); //Set object stores unique values
@@ -48,3 +48,5 @@ function players(matches) {
 
   return Array.from(playerNames); // convert the Set back into an array
 }
+
+console.log(players(matches));
