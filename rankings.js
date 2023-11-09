@@ -17,3 +17,23 @@
 
 // ['Alice', 'Bob', 'Carol', 'Dean', 'Elise']
 
+// 1. create an empty result array to store the players
+// 2. loop the array to check each obj.winner and obj.loser
+// 2.1 if it is not in the result array, store the winner's name
+// 2.2 if it is in the result array, skip
+// 3. return the result array
+
+function players(matches){
+  const playerNames = [];
+
+  matches.forEach(match => {
+    if(!playerNames.includes(match.winner)){
+      playerNames.push(match.winner);
+    }
+    if(!playerNames.includes(match.loser)){
+      playerNames.push(match.loser);
+    }
+  });
+
+  return playerNames;
+}
