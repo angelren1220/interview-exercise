@@ -37,3 +37,14 @@ function players(matches){
 
   return playerNames;
 }
+
+function players(matches) {
+  const playerNames = new Set(); //Set object stores unique values
+
+  matches.forEach(match => {
+    playerNames.add(match.winner);
+    playerNames.add(match.loser);
+  });
+
+  return Array.from(playerNames); // convert the Set back into an array
+}
