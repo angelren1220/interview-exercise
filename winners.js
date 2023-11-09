@@ -4,15 +4,15 @@
 
 // We're given some game outcome data like the following:
 
-// [
-//   { winner: 'Alice', loser: 'Bob',   loser_points: 3 },
-//   { winner: 'Carol', loser: 'Dean',  loser_points: 1 },
-//   { winner: 'Elise', loser: 'Bob',   loser_points: 2 },
-//   { winner: 'Elise', loser: 'Carol', loser_points: 4 },
-//   { winner: 'Alice', loser: 'Carol', loser_points: 2 },
-//   { winner: 'Carol', loser: 'Dean',  loser_points: 3 },
-//   { winner: 'Dean',  loser: 'Elise', loser_points: 2 },
-// ]
+const matches = [
+  { winner: 'Alice', loser: 'Bob',   loser_points: 3 },
+  { winner: 'Carol', loser: 'Dean',  loser_points: 1 },
+  { winner: 'Elise', loser: 'Bob',   loser_points: 2 },
+  { winner: 'Elise', loser: 'Carol', loser_points: 4 },
+  { winner: 'Alice', loser: 'Carol', loser_points: 2 },
+  { winner: 'Carol', loser: 'Dean',  loser_points: 3 },
+  { winner: 'Dean',  loser: 'Elise', loser_points: 2 },
+];
 // Using the same data as the previous question, write a function that produces a data structure like the following, which lists each participant, and a list of who they've beaten.
 // Output:
 
@@ -31,5 +31,25 @@
 //         2.1.2. Append the loser's name to the winner's array in 'results'.
 //         2.1.3. If the loser does not exist as a key in 'results', add them with an initial empty array (ensuring everyone appears in the result).
 // 3. Return the 'results' object.
+
+function winners(matches){
+  const results = {};
+
+  matches.forEach(match => {
+    if(!results.hasOwnProperty(match.winner)){
+      results[match.winner] = [];
+    }
+
+    results[match.winner].push(match.loser);
+
+    if(!results.hasOwnProperty(match.loser)){
+      results[match.loser] = [];
+    }
+  });
+
+  return results;
+}
+
+console.log(winners(matches));
 
 
